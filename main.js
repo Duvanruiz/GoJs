@@ -79,7 +79,7 @@ function init() {
       { from: "RACK2", to: "NGW",port:"null -> 50|100GE9/0/4"}
     ];
 
-
+    myDiagram.layout = $(go.ForceDirectedLayout);
 
     // Asignar el modelo al diagrama
     myDiagram.model = model;
