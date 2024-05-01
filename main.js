@@ -5,12 +5,30 @@ function init() {
     var myDiagram = $(go.Diagram, "myDiagramDiv");
 
     // Definir el aspecto de los nodos
-    myDiagram.nodeTemplate =
-      $(go.Node, "Auto",
-        $(go.Shape, "Square", { fill: "lightblue", stroke: null }),
-        $(go.TextBlock, { margin: 8 },
-          new go.Binding("text", "key"))
-      );
+    // Personalizar el aspecto del nodo con una forma redondeada y un color de relleno diferente
+    myDiagram.nodeTemplate = 
+    $(go.Node, "Auto",
+     $(go.Shape, "RoundedRectangle", { fill: "lightgreen", stroke: null }),
+    $(go.TextBlock, { margin: 8 }, new go.Binding("text", "key"))
+    );
+
+    // Personalizar el aspecto del nodo con una imagen y texto centrado
+   // myDiagram.nodeTemplate = 
+     //   $(go.Node, "Vertical",
+       // $(go.Picture, "imagen.png", { width: 50, height: 50 }),
+       // $(go.TextBlock, { margin: 8 }, new go.Binding("text", "key"))  
+       // );
+
+    // Personalizar el aspecto del nodo con un fondo degradado y un borde
+    myDiagram.nodeTemplate = 
+        $(go.Node, "Auto",
+        $(go.Shape, "Ellipse", { 
+        fill: $(go.Brush, "Linear", { 0: "white", 1: "lightblue" }), // Fondo degradado
+        stroke: "blue", strokeWidth: 2 // Borde azul
+    }),
+        $(go.TextBlock, { margin: 8 }, new go.Binding("text", "key"))
+    );
+
 
     // Definir el aspecto de los enlaces
     myDiagram.linkTemplate =

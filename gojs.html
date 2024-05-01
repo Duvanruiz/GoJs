@@ -10,8 +10,21 @@
     <div class="header">
         <h1 id="title">Topologias</h1>
     </div>
+    
     <!-- Un div donde se renderizará el diagrama -->
     <div id="myDiagramDiv" style="width: 1000px; height: 600px; border: 1px solid black;"></div>
+
+    <div class="sidebar">
+      <div class="sidebar-content">
+          <div class="search-bar">
+              <input type="text" class="search-input" placeholder="Buscar...">
+              <button class="search-btn">Buscar</button>
+          </div>
+          <!-- Puedes agregar más contenido aquí -->
+      </div>
+      <!-- Botón para cerrar la barra lateral -->
+      <span class="close-btn">&times;</span>
+  </div>
 
     <!-- Incluir el archivo GoJS -->
     <script src="https://unpkg.com/gojs/release/go.js"></script>
@@ -26,5 +39,9 @@
             init();
         };
     </script>
+    <div>
+      <h2>¿Qué es una topología?</h2>
+    </div>
+    
 </body>
 </html>
