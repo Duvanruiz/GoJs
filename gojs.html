@@ -1,33 +1,30 @@
 <!DOCTYPE html> 
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    
-    <script src="script.js"></script>
-    <script src="https://unpkg.com/gojs/release/go.js"></script>
-    <script src="main.js"></script>
     <title>Topologias</title>
-  
-  </head>
-  
-  <body>
+</head>
+<body>
     <div class="header">
-    <h1 id="title">Topologias</h1>
+        <h1 id="title">Topologias</h1>
     </div>
     <!-- Un div donde se renderizará el diagrama -->
     <div id="myDiagramDiv" style="width: 1000px; height: 600px; border: 1px solid black;"></div>
-    
-    <!-- Llamar a la función init() -->
-    <script>
-        // Llama a la función init() después de que se cargue el DOM
-        document.addEventListener("DOMContentLoaded", function() {
-            init();
-        });
-    </script>
-    
-    </body>
-    </html>
-</html>
 
+    <!-- Incluir el archivo GoJS -->
+    <script src="https://unpkg.com/gojs/release/go.js"></script>
+    <!-- Incluir tu archivo JavaScript -->
+    <script src="main.js"></script>
+
+    <!-- Llamar a la función init() después de que la página se haya cargado -->
+    <script>
+        // Esta función se ejecutará después de que la página se haya cargado completamente
+        window.onload = function() {
+            // Llamar a la función init() definida en tu archivo JavaScript
+            init();
+        };
+    </script>
+</body>
+</html>
