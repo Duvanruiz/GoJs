@@ -12,23 +12,16 @@ function init() {
     $(go.TextBlock, { margin: 8 }, new go.Binding("text", "key"))
     );
 
-    // Personalizar el aspecto del nodo con una imagen y texto centrado
-   // myDiagram.nodeTemplate = 
-     //   $(go.Node, "Vertical",
-       // $(go.Picture, "imagen.png", { width: 50, height: 50 }),
-       // $(go.TextBlock, { margin: 8 }, new go.Binding("text", "key"))  
-       // );
 
     // Personalizar el aspecto del nodo con un fondo degradado y un borde
     myDiagram.nodeTemplate = 
-        $(go.Node, "Auto",
-        $(go.Shape, "Ellipse", { 
-        fill: $(go.Brush, "Linear", { 0: "white", 1: "lightblue" }), // Fondo degradado
-        stroke: "blue", strokeWidth: 2 // Borde azul
-    }),
-        $(go.TextBlock, { margin: 8 }, new go.Binding("text", "key"))
+    $(go.Node, "Auto",
+        $(go.Panel, "Vertical",
+            { margin: new go.Margin(5, 5, 5, 5) }, // Margen solo en la parte superior de la imagen
+            $(go.Picture, "imagenes/router.png", { width: 50, height: 50 }), // Imagen del nodo
+            $(go.TextBlock, { margin: 0, textAlign: "center", maxSize: new go.Size(200, NaN) }, new go.Binding("text", "key")) // Texto del nodo
+        )
     );
-
 
     // Definir el aspecto de los enlaces
     myDiagram.linkTemplate =
@@ -48,11 +41,17 @@ function init() {
       { key: "RACK1_CAJA_OB_1" },
       { key: "RACK1_CAJA_OB_2" },
       { key: "NGWESPACIOSUR"},
-      { key: "ZAC_MED_ATP" },
-      { key: "ISWF" },
-      { key: "RACK1" },
-      { key: "RACK2" },
-      { key: "NGW"}
+      { key: "HAC-VAL.YUMBO2_MOV-CP1"},
+      { key: "R1-F1 ODF2"},
+      { key: "R1-F1 ODF1"},
+      { key: "102-01B-40"},
+      { key: "105-06B-70"},
+      { key: "NGWCALINORTE"},
+      { key: "ZAC-BOG.CALLEJA-H1-C600"},
+      { key: "AAG-BOG.CALLEJA-C4"},  
+      { key: "ACO-BOG.TOBERIN-M7"},
+      { key: "THBHTOBERINCCM"}
+
     ];
   
     model.linkDataArray = [
@@ -62,22 +61,21 @@ function init() {
       { from: "ISWFTTHSABANΕΤΑΑΤΡ", to: "RACK1_CAJA_OB_2",port:"100GE1/0/1 -> Hilo 1 y 2" },
       { from: "RACK1_CAJA_OB_1", to: "NGWESPACIOSUR", port:"null -> 50|100GE9/0/4" },
       { from: "RACK1_CAJA_OB_2", to: "NGWESPACIOSUR",port:"null -> 50|100GE9/0/4"},
-      { from: "ZAC_MED_ATP", to: "ISWF", port:"1/10/2 -> Xge0/0/1" },
-      { from: "ZAC_MED_ATP", to: "ISWF", port:"1/11/2 -> Xge1/0/1" },
-      { from: "ISWF", to: "RACK1",port:"100GE0/0/1 -> Hilo 1 y 2" },
-      { from: "ISWF", to: "RACK1",port:"100GE1/0/1 -> Hilo 1 y 2" },
-      { from: "RACK1", to: "NGW", port:"null -> 50|100GE9/0/4" },
-      { from: "RACK2", to: "NGW",port:"null -> 50|100GE9/0/4"}
+      { from: "HAC-VAL.YUMBO2_MOV-CP1", to: "R1-F1 ODF2", port: "B1/B2 -> B1/B2"},
+      { from: "HAC-VAL.YUMBO2_MOV-CP1", to: "R1-F1 ODF1", port: "A8/A8 -> A8/A8"},
+      { from: "R1-F1 ODF2",to: "102-01B-40", port: "B1/B2 -> B7/B8"},
+      { from: "R1-F1 ODF1",to: "105-06B-70", port: "A8/A8 -> D3/D4"},
+      { from: "102-01B-40",to: "NGWCALINORTE",port: "B7/B8 -> Gi15/1/3"},
+      { from: "105-06B-70",to: "NGWCALINORTE", port: "D3/D4 -> Gi15/1/3"},
+      { from: "ZAC-BOG.CALLEJA-H1-C600",to: "AAG-BOG.CALLEJA-C4",port: "1/10/1 -> 1/2/2"},
+      { from: "ZAC-BOG.CALLEJA-H1-C600",to: "AAG-BOG.CALLEJA-C4",port: "1/11/1 -> 1/1/2"},
+      { from: "AAG-BOG.CALLEJA-C4",to: "ACO-BOG.TOBERIN-M7", port: "null -> null"},
+      { from: "AAG-BOG.CALLEJA-C4",to: "ACO-BOG.TOBERIN-M7", port: "null -> null"},
+      { from: "ACO-BOG.TOBERIN-M7", to: "THBHTOBERINCCM", port: "1/1/c9 -> 50|100GE1/0/2"},
+      { from: "ACO-BOG.TOBERIN-M7", to: "THBHTOBERINCCM", port: "2/1/c9 -> 50|100GE1/1/2"}
+
     ];
 
-    model.linkDataArray1 = [
-      { from: "ZAC_MED_ATP", to: "ISWF", port:"1/10/2 -> Xge0/0/1" },
-      { from: "ZAC_MED_ATP", to: "ISWF", port:"1/11/2 -> Xge1/0/1" },
-      { from: "ISWF", to: "RACK1",port:"100GE0/0/1 -> Hilo 1 y 2" },
-      { from: "ISWF", to: "RACK1",port:"100GE1/0/1 -> Hilo 1 y 2" },
-      { from: "RACK1", to: "NGW", port:"null -> 50|100GE9/0/4" },
-      { from: "RACK2", to: "NGW",port:"null -> 50|100GE9/0/4"}
-    ];
 
     myDiagram.layout = $(go.ForceDirectedLayout);
 
