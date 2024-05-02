@@ -23,7 +23,6 @@ function init() {
         )
     );
 
-
     // Definir el aspecto de los enlaces
     myDiagram.linkTemplate =
       $(go.Link,
@@ -65,7 +64,7 @@ function init() {
       { from: "102-01B-40",to: "NGWCALINORTE",port: "B7/B8 -> Gi15/1/3"},
       { from: "105-06B-70",to: "NGWCALINORTE", port: "D3/D4 -> Gi15/1/3"}
     ];
-
+//v
    
 
     myDiagram.layout = $(go.ForceDirectedLayout);
