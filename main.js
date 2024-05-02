@@ -46,7 +46,11 @@ function init() {
       { key: "R1-F1 ODF1"},
       { key: "102-01B-40"},
       { key: "105-06B-70"},
-      { key: "NGWCALINORTE"}
+      { key: "NGWCALINORTE"},
+      { key: "ZAC-BOG.CALLEJA-H1-C600"},
+      { key: "AAG-BOG.CALLEJA-C4"},  
+      { key: "ACO-BOG.TOBERIN-M7"},
+      { key: "THBHTOBERINCCM"}
 
     ];
   
@@ -62,9 +66,16 @@ function init() {
       { from: "R1-F1 ODF2",to: "102-01B-40", port: "B1/B2 -> B7/B8"},
       { from: "R1-F1 ODF1",to: "105-06B-70", port: "A8/A8 -> D3/D4"},
       { from: "102-01B-40",to: "NGWCALINORTE",port: "B7/B8 -> Gi15/1/3"},
-      { from: "105-06B-70",to: "NGWCALINORTE", port: "D3/D4 -> Gi15/1/3"}
+      { from: "105-06B-70",to: "NGWCALINORTE", port: "D3/D4 -> Gi15/1/3"},
+      { from: "ZAC-BOG.CALLEJA-H1-C600",to: "AAG-BOG.CALLEJA-C4",port: "1/10/1 -> 1/2/2"},
+      { from: "ZAC-BOG.CALLEJA-H1-C600",to: "AAG-BOG.CALLEJA-C4",port: "1/11/1 -> 1/1/2"},
+      { from: "AAG-BOG.CALLEJA-C4",to: "ACO-BOG.TOBERIN-M7", port: "null -> null"},
+      { from: "AAG-BOG.CALLEJA-C4",to: "ACO-BOG.TOBERIN-M7", port: "null -> null"},
+      { from: "ACO-BOG.TOBERIN-M7", to: "THBHTOBERINCCM", port: "1/1/c9 -> 50|100GE1/0/2"},
+      { from: "ACO-BOG.TOBERIN-M7", to: "THBHTOBERINCCM", port: "2/1/c9 -> 50|100GE1/1/2"}
+
     ];
-//v
+
    
 
     myDiagram.layout = $(go.ForceDirectedLayout);
