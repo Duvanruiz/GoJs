@@ -43,7 +43,12 @@ function init() {
       { key: "RACK1_CAJA_OB_2" },
       { key: "NGWESPACIOSUR"},
       { key: "HAC-VAL.YUMBO2_MOV-CP1"},
-      { key: "R1-F1 ODF2"}
+      { key: "R1-F1 ODF2"},
+      { key: "R1-F1 ODF1"},
+      { key: "102-01B-40"},
+      { key: "105-06B-70"},
+      { key: "NGWCALINORTE"}
+
     ];
   
     model.linkDataArray = [
@@ -52,7 +57,13 @@ function init() {
       { from: "ISWFTTHSABANΕΤΑΑΤΡ", to: "RACK1_CAJA_OB_1",port:"100GE0/0/1 -> Hilo 1 y 2" },
       { from: "ISWFTTHSABANΕΤΑΑΤΡ", to: "RACK1_CAJA_OB_2",port:"100GE1/0/1 -> Hilo 1 y 2" },
       { from: "RACK1_CAJA_OB_1", to: "NGWESPACIOSUR", port:"null -> 50|100GE9/0/4" },
-      { from: "RACK1_CAJA_OB_2", to: "NGWESPACIOSUR",port:"null -> 50|100GE9/0/4"}
+      { from: "RACK1_CAJA_OB_2", to: "NGWESPACIOSUR",port:"null -> 50|100GE9/0/4"},
+      { from: "HAC-VAL.YUMBO2_MOV-CP1", to: "R1-F1 ODF2", port: "B1/B2 -> B1/B2"},
+      { from: "HAC-VAL.YUMBO2_MOV-CP1", to: "R1-F1 ODF1", port: "A8/A8 -> A8/A8"},
+      { from: "R1-F1 ODF2",to: "102-01B-40", port: "B1/B2 -> B7/B8"},
+      { from: "R1-F1 ODF1",to: "105-06B-70", port: "A8/A8 -> D3/D4"},
+      { from: "102-01B-40",to: "NGWCALINORTE",port: "B7/B8 -> Gi15/1/3"},
+      { from: "105-06B-70",to: "NGWCALINORTE", port: "D3/D4 -> Gi15/1/3"}
     ];
 
    
