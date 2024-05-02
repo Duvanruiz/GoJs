@@ -12,21 +12,15 @@ function init() {
     $(go.TextBlock, { margin: 8 }, new go.Binding("text", "key"))
     );
 
-    // Personalizar el aspecto del nodo con una imagen y texto centrado
-   // myDiagram.nodeTemplate = 
-     //   $(go.Node, "Vertical",
-       // $(go.Picture, "imagen.png", { width: 50, height: 50 }),
-       // $(go.TextBlock, { margin: 8 }, new go.Binding("text", "key"))  
-       // );
 
     // Personalizar el aspecto del nodo con un fondo degradado y un borde
     myDiagram.nodeTemplate = 
-        $(go.Node, "Auto",
-        $(go.Shape, "Ellipse", { 
-        fill: $(go.Brush, "Linear", { 0: "white", 1: "lightblue" }), // Fondo degradado
-        stroke: "blue", strokeWidth: 2 // Borde azul
-    }),
-        $(go.TextBlock, { margin: 8 }, new go.Binding("text", "key"))
+    $(go.Node, "Auto",
+        $(go.Panel, "Vertical",
+            { margin: new go.Margin(5, 5, 5, 5) }, // Margen solo en la parte superior de la imagen
+            $(go.Picture, "imagenes/router.png", { width: 50, height: 50 }), // Imagen del nodo
+            $(go.TextBlock, { margin: 0, textAlign: "center", maxSize: new go.Size(200, NaN) }, new go.Binding("text", "key")) // Texto del nodo
+        )
     );
 
 
@@ -65,7 +59,7 @@ function init() {
       { from: "ZAC_MED_ATP", to: "ISWF", port:"1/10/2 -> Xge0/0/1" },
       { from: "ZAC_MED_ATP", to: "ISWF", port:"1/11/2 -> Xge1/0/1" },
       { from: "ISWF", to: "RACK1",port:"100GE0/0/1 -> Hilo 1 y 2" },
-      { from: "ISWF", to: "RACK1",port:"100GE1/0/1 -> Hilo 1 y 2" },
+      { from: "ISWF", to: "RACK2",port:"100GE1/0/1 -> Hilo 1 y 2" },
       { from: "RACK1", to: "NGW", port:"null -> 50|100GE9/0/4" },
       { from: "RACK2", to: "NGW",port:"null -> 50|100GE9/0/4"}
     ];
@@ -79,7 +73,7 @@ function init() {
       { from: "RACK2", to: "NGW",port:"null -> 50|100GE9/0/4"}
     ];
 
-
+    myDiagram.layout = $(go.ForceDirectedLayout);
 
     // Asignar el modelo al diagrama
     myDiagram.model = model;
