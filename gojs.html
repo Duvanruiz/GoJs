@@ -4,27 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <title>Topologias</title>
+    <title>Topologías</title> <!-- Corregido el título -->
 </head>
 <body>
-    <div class="header">
-        <h1 id="title">Topologias</h1>
-    </div>
-    
-    <!-- Un div donde se renderizará el diagrama -->
-    <div id="myDiagramDiv" style="width: 1000px; height: 600px; border: 1px solid black;"></div>
+    <!-- Encabezado -->
+    <header class="header-container">
+        <div class="header-content">
+            <a href="#" class="logo">Topologías</a> <!-- Corregido el texto del logo -->
 
+            <!-- Navegación -->
+            <nav>
+                <ul class="nav">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Acerca de</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenedor para el diagrama con margen superior -->
+    <div id="myDiagramDiv" style="width: 1000px; height: 600px; border: 1px solid black; margin-top: 80px;"></div>
+    <!-- 80px es un valor de ejemplo, puedes ajustarlo según tu diseño -->
+
+    <!-- Barra lateral -->
     <div class="sidebar">
-      <div class="sidebar-content">
-          <div class="search-bar">
-              <input type="text" class="search-input" placeholder="Buscar...">
-              <button class="search-btn">Buscar</button>
-          </div>
-          <!-- Puedes agregar más contenido aquí -->
-      </div>
-      <!-- Botón para cerrar la barra lateral -->
-      <span class="close-btn">&times;</span>
-  </div>
+        <div class="sidebar-content">
+            <!-- Barra de búsqueda -->
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Buscar...">
+                <button class="search-btn">Buscar</button>
+            </div>
+            <!-- Puedes agregar más contenido aquí -->
+        </div>
+        <!-- Botón para cerrar la barra lateral -->
+        <span class="close-btn">&times;</span>
+    </div>
 
     <!-- Incluir el archivo GoJS -->
     <script src="https://unpkg.com/gojs/release/go.js"></script>
@@ -39,9 +55,11 @@
             init();
         };
     </script>
+
+    <!-- Sección adicional -->
     <div>
-      <h2>¿Qué es una topología?</h2>
+        <p>Servicios de visualización de Topologías para las redes ftth, ftto, fttx y cmts</p>
     </div>
-    
 </body>
 </html>
+
