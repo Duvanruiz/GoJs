@@ -76,7 +76,6 @@ function init() {
 
     ];
 
-   
 
     myDiagram.layout = $(go.ForceDirectedLayout);
 
